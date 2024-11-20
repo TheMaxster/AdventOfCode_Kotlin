@@ -9,7 +9,7 @@ import java.util.*
  * See https://adventofcode.com/2023/day/1
  */
 class Day01 : Day() {
-    
+
     override val loggingEnabled: Boolean
         get() = true
 
@@ -29,7 +29,7 @@ class Day01 : Day() {
             bdNumbers.add(BigDecimal(number))
         }
 
-        return bdNumbers.sum().toString();
+        return bdNumbers.sum().toString()
     }
 
     override fun part2(input: List<String>): String {

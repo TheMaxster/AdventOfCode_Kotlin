@@ -22,7 +22,7 @@ class Day02 : Day() {
     override fun part1(input: List<String>): String {
         // Map for saving id (key) and the game result map (value)
 
-        val resultMap = input.mapNotNull { line -> processGame(line) }.toMap();
+        val resultMap = input.mapNotNull { line -> processGame(line) }.toMap()
 
         log("ResultMap: $resultMap")
 
@@ -41,7 +41,7 @@ class Day02 : Day() {
     override fun part2(input: List<String>): String {
         // Map for saving id (key) and the game result map (value)
 
-        val resultMap = input.mapNotNull { line -> processGame(line) }.toMap();
+        val resultMap = input.mapNotNull { line -> processGame(line) }.toMap()
 
         log("ResultMap: $resultMap")
 
