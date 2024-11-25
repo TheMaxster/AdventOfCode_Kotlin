@@ -3,7 +3,7 @@ package year2024.day03
 import application.Day
 
 /**
- * See https://adventofcode.com/2024/day/3
+ * See https://adventofcode.com/2024/day/4
  */
 class Day03 : Day() {
     override val loggingEnabled: Boolean

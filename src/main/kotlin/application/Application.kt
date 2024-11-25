@@ -33,6 +33,7 @@ object Application {
     init {
         DAYS2023[1] = year2023.day01.Day01()
         DAYS2023[2] = year2023.day02.Day02()
+        DAYS2023[3] = year2023.day03.Day03()
 //        DAYS2023[3] = Day03()
 //        DAYS2023[4] = Day04()
 //        DAYS2023[5] = Day05() // Part 2 needs a lot of time
