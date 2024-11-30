@@ -28,5 +28,35 @@ bin/
 ### Mac OS ###
 .DS_Store
 
-# General
+# Build directories
 /target/
+/build/
+/out/
+
+# IntelliJ IDEA specific files
+/.idea/
+/*.iml
+/*.iws
+
+# IntelliJ Cache Folders
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/**/usage.statistics.xml
+.idea/**/dictionaries
+.idea/**/shelf
+
+# Kotlin specificf iles
+*.kotlin_metadata
+*.class
+*.jar
+
+# Maven specific files
+/target/
+!.mvn/wrapper/maven-wrapper.jar
+
+
+# Log and temporary files
+*.log
+*.tmp
+*.swp
+*.swo

@@ -90,17 +90,17 @@ object Application {
         return ImportUtils.readAsList(filePath)
     }
 
-    @JvmStatic
-    fun main(args: Array<String>) {
-        val year = args.getOrNull(0)?.toIntOrNull() ?: 2023
-        val day = args.getOrNull(1)?.toIntOrNull() ?: 1
+        @JvmStatic
+        fun main(args: Array<String>) {
+            val year = args.getOrNull(0)?.toIntOrNull() ?: 2023
+            val day = args.getOrNull(1)?.toIntOrNull() ?: 1
 
-        val input = loadInput(day)
+            val input = loadInput(day)
 
-        println("Executing: $year-$day")
-        YEARS[year]?.get(day)?.let { daySolution ->
-            println("Solution Part 1: ${daySolution.part1(input)}")
-            println("Solution Part 2: ${daySolution.part2(input)}")
-        } ?: println("Error: No solution available for year $year and day $day.")
-    }
+            println("Executing: $year-$day")
+            YEARS[year]?.get(day)?.let { daySolution ->
+                println("Solution Part 1: ${daySolution.part1(input)}")
+                println("Solution Part 2: ${daySolution.part2(input)}")
+            } ?: println("Error: No solution available for year $year and day $day.")
+        }
 }
