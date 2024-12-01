@@ -80,12 +80,12 @@ object Application {
         YEARS[2024] = DAYS2024
     }
 
-    private fun loadInput(day: Int): List<String> {
+    private fun loadInput(day: Int, year: Int): List<String> {
         var paddedDay = day.toString()
         if (day < 10) {
             paddedDay = "0$day"
         }
-        val filePath = "src/main/resources/year2023/day$paddedDay/input.txt"
+        val filePath = "src/main/resources/year$year/day$paddedDay/input.txt"
 
         return ImportUtils.readAsList(filePath)
     }
@@ -95,7 +95,7 @@ object Application {
             val year = args.getOrNull(0)?.toIntOrNull() ?: 2023
             val day = args.getOrNull(1)?.toIntOrNull() ?: 1
 
-            val input = loadInput(day)
+            val input = loadInput(day, year)
 
             println("Executing: $year-$day")
             YEARS[year]?.get(day)?.let { daySolution ->
