@@ -23,5 +23,17 @@ class ImportUtils {
             return array
         }
 
+        fun convertListToIntArray(
+            input: List<String>,
+            delimiter: String
+        ): List<List<Int>> {
+            return input.map { line ->
+                line.split(delimiter)
+                    .filter { it.isNotEmpty() }
+                    .map { it.trim().toInt() }
+                    .toList()
+            }.toList()
+        }
+
     }
 }

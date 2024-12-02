@@ -11,7 +11,7 @@ class Day01 : Day() {
     val FILE_PATH: String = "src/main/resources/year2024/day01/input_test_01.txt"
 
     override val loggingEnabled: Boolean
-        get() = TODO("Not yet implemented")
+        get() = true
 
     override fun part1(input: List<String>): String {
         val testInput = ImportUtils.readAsList(FILE_PATH)
