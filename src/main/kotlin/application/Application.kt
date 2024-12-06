@@ -9,7 +9,7 @@ import year2024.day02.Day02
 import year2024.day03.Day03
 import year2024.day04.Day04
 import year2024.day05.Day05
-import year2024.day06.Day06
+import main.kotlin.year2024.day06.Day06
 import year2024.day07.Day07
 import year2024.day08.Day08
 import year2024.day09.Day09

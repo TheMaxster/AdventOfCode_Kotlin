@@ -1,6 +1,8 @@
 package year2024.day04
 
 import application.Day
+import main.kotlin.utils.AocArrayUtils
+import main.kotlin.utils.Coordinate
 import utils.ImportUtils
 
 /**
@@ -13,19 +15,16 @@ class Day04 : Day() {
 
     val FILE_PATH: String = "src/main/resources/year2024/day04/input_test_01.txt"
 
-
     override fun part1(input: List<String>): String {
 //        val testInput = ImportUtils.readAsList(FILE_PATH);
         val matrix = ImportUtils.convertListToArray(input)
 
-        val findings = findAllOccurences(matrix, "X")
-            .sumOf { x: Pair<Int, Int> -> checkLetterInNeighborhood(x, matrix) }
-
-        return findings.toString()
+        return AocArrayUtils.findAllOccurences(matrix, "X")
+            .sumOf { checkLetterInNeighborhood(it, matrix) }.toString()
     }
 
     private fun checkLetterInNeighborhood(
-        xCoordinate: Pair<Int, Int>,
+        xCoordinate: Coordinate,
         matrix: Array<Array<String>>
     ): Int {
         return (checkMas(xCoordinate, matrix, -1 to 0, -2 to 0, -3 to 0)
@@ -39,16 +38,16 @@ class Day04 : Day() {
     }
 
     private fun checkMas(
-        xCoordinate: Pair<Int, Int>,
+        xCoordinate: Coordinate,
         matrix: Array<Array<String>>,
         mPair: Pair<Int, Int>,
         aPair: Pair<Int, Int>,
         sPair: Pair<Int, Int>,
     ): Int {
         try {
-            if (matrix[xCoordinate.first + mPair.first][xCoordinate.second + mPair.second] == "M"
-                && matrix[xCoordinate.first + aPair.first][xCoordinate.second + aPair.second] == "A"
-                && matrix[xCoordinate.first + sPair.first][xCoordinate.second + sPair.second] == "S"
+            if (matrix[xCoordinate.x + mPair.first][xCoordinate.y + mPair.second] == "M"
+                && matrix[xCoordinate.x + aPair.first][xCoordinate.y + aPair.second] == "A"
+                && matrix[xCoordinate.x + sPair.first][xCoordinate.y + sPair.second] == "S"
             ) {
                 return 1
             }
@@ -58,34 +57,17 @@ class Day04 : Day() {
         return 0
     }
 
-    private fun findAllOccurences(
-        matrix: Array<Array<String>>,
-        letter: String
-    ): List<Pair<Int, Int>> {
-        val occurences: MutableList<Pair<Int, Int>> = ArrayList()
-        for (i in matrix.indices) {
-            for (j in matrix[i].indices) {
-                if (matrix[i][j] == letter) {
-                    occurences.add(Pair(i, j))
-                }
-            }
-        }
-        return occurences
-    }
-
     override fun part2(input: List<String>): String {
         //        val testInput = ImportUtils.readAsList(FILE_PATH);
         val matrix = ImportUtils.convertListToArray(input)
 
-        val findings = findAllOccurences(matrix, "A")
-            .sumOf { a: Pair<Int, Int> -> checkLetterInNeighborhoodPart2(a, matrix) }
-
-        return findings.toString()
+        return AocArrayUtils.findAllOccurences(matrix, "A")
+            .sumOf { checkLetterInNeighborhoodPart2(it, matrix) }.toString()
     }
 
 
     private fun checkLetterInNeighborhoodPart2(
-        aCoordinate: Pair<Int, Int>,
+        aCoordinate: Coordinate,
         matrix: Array<Array<String>>
     ): Int {
         return (checkMasPart2(aCoordinate, matrix, -1 to -1, -1 to 1, 1 to 1, 1 to -1)
@@ -95,7 +77,7 @@ class Day04 : Day() {
     }
 
     private fun checkMasPart2(
-        xCoordinate: Pair<Int, Int>,
+        xCoordinate: Coordinate,
         matrix: Array<Array<String>>,
         m1Pair: Pair<Int, Int>,
         m2Pair: Pair<Int, Int>,
@@ -103,10 +85,10 @@ class Day04 : Day() {
         s2Pair: Pair<Int, Int>
     ): Int {
         try {
-            if (matrix[xCoordinate.first + m1Pair.first][xCoordinate.second + m1Pair.second] == "M"
-                && matrix[xCoordinate.first + m2Pair.first][xCoordinate.second + m2Pair.second] == "M"
-                && matrix[xCoordinate.first + s1Pair.first][xCoordinate.second + s1Pair.second] == "S"
-                && matrix[xCoordinate.first + s2Pair.first][xCoordinate.second + s2Pair.second] == "S"
+            if (matrix[xCoordinate.x + m1Pair.first][xCoordinate.y + m1Pair.second] == "M"
+                && matrix[xCoordinate.x + m2Pair.first][xCoordinate.y + m2Pair.second] == "M"
+                && matrix[xCoordinate.x + s1Pair.first][xCoordinate.y + s1Pair.second] == "S"
+                && matrix[xCoordinate.x + s2Pair.first][xCoordinate.y + s2Pair.second] == "S"
             ) {
                 return 1
             }

@@ -1,9 +1,6 @@
 package year2024.day03
 
 import application.Day
-import utils.ImportUtils
-import java.util.function.Consumer
-import java.util.regex.Pattern
 
 /**
  * See https://adventofcode.com/2024/day/4
