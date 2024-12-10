@@ -46,7 +46,46 @@ class AocArrayUtils {
 
             return array.sliceArray(0 until index) + array.sliceArray(index + 1 until array.size)
         }
+
+        fun filterSurroundingCoordinates(
+            map: Array<Array<String>>,
+            coords: Coordinate,
+            target: String
+        ): List<Coordinate> {
+            // Check boundaries to avoid ArrayIndexOutOfBoundsException
+            val rows = map.size
+            val cols = map[0].size
+
+            val x: Int = coords.x
+            val y: Int = coords.y
+
+            val result: MutableList<Coordinate> = java.util.ArrayList()
+
+            // Check the left cell
+            if (x > 0 && map[x - 1][y] == target) {
+                result.add(Coordinate(x - 1, y))
+            }
+
+            // Check the right cell
+            if (x < rows - 1 && map[x + 1][y] == target) {
+                result.add(Coordinate(x + 1, y))
+            }
+
+            // Check the top cell
+            if (y > 0 && map[x][y - 1] == target) {
+                result.add(Coordinate(x, y - 1))
+            }
+
+            // Check the bottom cell
+            if (y < cols - 1 && map[x][y + 1] == target) {
+                result.add(Coordinate(x, y + 1))
+            }
+
+            return result
+        }
     }
+
+
 
 
 }
