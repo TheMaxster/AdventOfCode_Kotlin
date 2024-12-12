@@ -29,6 +29,14 @@ class AocArrayUtils {
             return x >= 0 && x < matrix.size && y >= 0 && y < matrix[0].size
         }
 
+        fun isWithinBounds(matrix: Array<Array<String>>, x:Int,y:Int): Boolean {
+            if (matrix.size == 0 || matrix[0].size == 0) {
+                return false
+            }
+
+            return x >= 0 && x < matrix.size && y >= 0 && y < matrix[0].size
+        }
+
         fun removeFirstOccurrence(array: Array<String>, target: String): Array<String> {
             val index = array.indexOfFirst { it == target }
             if (index == -1) { // When not found, return original array
